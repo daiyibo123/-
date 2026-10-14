@@ -1,0 +1,26 @@
+:root{
+  --bg:#F7F7F7;               /* 浅灰底：白卡片浮出层次 */
+  --bg2:#F7F7F7;
+  --panel:#FFFFFF;            /* 纸白面板 */
+  --panel2:#EEF2F6;
+  --line:#E5E5E5;             /* 铅笔边 */
+  --sig:#1CB0F6;              /* 靛墨蓝：前向信号/正确/主色 */
+  --sig-dim:#84D8FF;
+  --err:#FF4B4B;              /* 朱砂：误差/回传/警示 */
+  --err-dim:#FFDFE0;
+  --ok:#58CC02;               /* 竹绿 */
+  --warn:#FFC800;             /* 赭黄 */
+  --violet:#CE82FF;
+  --text:#4B4B4B;             /* 墨字 */
+  --text2:#777777;
+  --text3:#98A1AC;
+  --grad:linear-gradient(90deg,#58CC02,#1CB0F6);
+  --radius:12px;
+  --radius-s:8px;
+  --glow:0 4px 16px rgba(88,204,2,.25);
+  --glow-err:0 3px 12px rgba(194,84,60,.22);
+  --font:-apple-system,BlinkMacSystemFont,'PingFang SC','HarmonyOS Sans SC','Microsoft YaHei',sans-serif;
+  --mono:ui-monospace,'Cascadia Mono','JetBrains Mono',Consolas,'Courier New',monospace;
+  --hud-h:52px;
+  --paper-noise:none;
+}

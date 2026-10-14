@@ -1,0 +1,14 @@
+{
+  "name": "handcraft-nn-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "《手搓神经网络》服务端：静态托管 + AI 助教代理 + 匿名学情统计",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "init-db": "node index.js --init-db"
+  },
+  "dependencies": {
+    "better-sqlite3": "13.0.3"
+  }
+}

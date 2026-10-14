@@ -1,0 +1,37 @@
+/* ============ 结算 / 图鉴 / 报告 / 设置（米纸手账风） ============ */
+.result-wrap{display:flex;flex-direction:column;gap:16px;align-items:center;padding-top:24px}
+.result-stars{display:flex;gap:14px;font-size:44px}
+.result-stars .on{color:var(--warn);text-shadow:0 2px 6px rgba(201,138,45,.35);animation:popIn .5s cubic-bezier(.2,1.6,.4,1) both}
+.result-stars .off{color:#DDD2B9}
+.result-stars .on:nth-child(2){animation-delay:.18s}
+.result-stars .on:nth-child(3){animation-delay:.36s}
+.result-score{font-family:var(--mono);font-size:38px;font-weight:700;color:var(--sig)}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;width:100%}
+.mcard{background:var(--panel);border:1.5px solid var(--line);
+  border-radius:var(--radius);padding:14px;box-shadow:0 2px 6px rgba(51,48,42,.05)}
+.mcard h4{font-size:13px;color:var(--text2);margin-bottom:8px;letter-spacing:.06em}
+.mcard ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.mcard li{font-size:13px;line-height:1.5;padding-left:14px;position:relative;color:var(--text)}
+.mcard li::before{content:'▸';position:absolute;left:0;color:var(--err)}
+.mcard li.good::before{content:'✓';color:var(--ok)}
+.result-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+
+/* 图鉴（收集卡） */
+.codex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.codex-card{background:var(--panel);border:1.5px solid var(--line);
+  border-radius:var(--radius);padding:16px;min-height:150px;transition:transform .15s;
+  box-shadow:0 2px 6px rgba(51,48,42,.06)}
+.codex-card:hover{transform:translateY(-3px)}
+.codex-card.locked{filter:grayscale(1);opacity:.55}
+.codex-card .cname{font-weight:700;color:var(--sig);margin-bottom:4px}
+.codex-card .cformula{font-family:var(--mono);font-size:13px;color:var(--text);margin:6px 0;background:var(--bg2);border-radius:6px;padding:3px 6px;display:inline-block}
+.codex-card .cdesc{font-size:12.5px;color:var(--text2);line-height:1.55}
+.codex-card .cchap{font-size:11px;color:var(--text3);margin-top:8px}
+
+/* 报告 */
+.report-grid{display:grid;grid-template-columns:340px 1fr;gap:16px;align-items:start}
+.report-side{display:flex;flex-direction:column;gap:12px}
+@media (max-width:800px){.report-grid{grid-template-columns:1fr}}
+
+/* 设置 */
+.set-row{display:flex;justify-content:space-between;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line)}

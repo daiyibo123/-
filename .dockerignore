@@ -1,0 +1,11 @@
+.git
+.gitignore
+.env
+**/node_modules
+**/db.sqlite*
+_retired
+docs
+提交材料
+*.docx
+*.pptx
+*.md

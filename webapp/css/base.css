@@ -1,0 +1,145 @@
+/* ============ 基础（米纸手账风） ============ */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:radial-gradient(1200px 800px at 70% -10%,#FBF6EA 0%,var(--bg) 55%) fixed;
+  color:var(--text);font-family:var(--font);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  touch-action:manipulation;
+}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:var(--paper-noise)}
+.app-root{position:relative;z-index:1;min-height:100%;max-width:1180px;margin:0 auto;padding:16px 20px 40px}
+a{color:var(--sig);text-decoration:none}
+.mono{font-family:var(--mono);letter-spacing:.02em}
+h1,h2,h3{font-weight:700}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px;box-shadow:0 2px 8px rgba(51,48,42,.06)}
+.dim{color:var(--text2)}.dim2{color:var(--text3)}
+.small{font-size:12px}.big{font-size:20px}
+
+/* 按钮（纸面按钮） */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;justify-content:center;
+  background:var(--panel);color:var(--text);border:1.5px solid var(--line);
+  border-radius:10px;padding:10px 18px;font-size:15px;cursor:pointer;
+  transition:transform .12s,border-color .12s,box-shadow .12s;user-select:none;
+  font-family:var(--font);box-shadow:0 2px 4px rgba(51,48,42,.05);
+}
+.btn:hover{border-color:var(--sig);box-shadow:var(--glow);transform:translateY(-1px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn.primary{background:#1CB0F6;color:#FDFBF4;border-color:#1CB0F6}
+.btn.primary:hover{background:#3A7199}
+.btn.ghost{background:transparent;box-shadow:none}
+.btn.danger{border-color:var(--err);color:var(--err)}
+.btn.sm{padding:6px 12px;font-size:13px}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;border:1px solid var(--line);color:var(--text2);background:var(--panel)}
+.chip.ok{border-color:var(--ok);color:var(--ok)}
+.chip.err{border-color:var(--err);color:var(--err)}
+.chip.warn{border-color:var(--warn);color:var(--warn)}
+
+.fx-canvas{position:fixed;inset:0;pointer-events:none;z-index:9000}
+.toast-root{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:9500;display:flex;flex-direction:column;gap:8px;align-items:center}
+
+/* 动效 */
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.fade-in{animation:fadeIn .35s ease both}
+@keyframes shake{
+  10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}
+  30%,50%,70%{transform:translateX(-6px)}40%,60%{transform:translateX(6px)}
+}
+.shake{animation:shake .45s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+.pulse{animation:pulse 1.6s ease-in-out infinite}
+@keyframes popIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.pop-in{animation:popIn .3s cubic-bezier(.2,1.4,.4,1) both}
+
+/* 页面骨架 */
+.page-head{display:flex;align-items:baseline;gap:14px;margin:8px 0 18px;flex-wrap:wrap}
+.page-head h1{font-size:26px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px}
+.stars{color:var(--warn);letter-spacing:2px}
+
+input[type=range]{accent-color:var(--sig);width:100%}
+input[type=checkbox]{accent-color:var(--sig)}
+::-webkit-scrollbar{height:8px;width:8px}
+::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+::-webkit-scrollbar-track{background:transparent}
+
+@media (max-width:768px){
+  .app-root{padding:10px 12px 120px}
+  .page-head h1{font-size:21px}
+}
+
+/* ===== 字号放大层（可读性优先） ===== */
+body{font-size:17px}
+.small{font-size:14px}
+.dim{font-size:15.5px}
+.dim2{font-size:14.5px}
+.dim2.small,.dim.small{font-size:13.5px}
+.readout{font-size:16px}
+.target-card p{font-size:16px}
+.tool-panel h4{font-size:17px}
+.btn{font-size:16px}
+.btn.sm{font-size:14.5px}
+.tcard .v{font-size:15px}
+.tcard .m{font-size:12.5px}
+.slot{font-size:14.5px}
+.slot .slot-v{font-size:15px}
+.chip{font-size:13.5px}
+.quiz-q{font-size:18px}
+.quiz-prog{font-size:13.5px}
+.unode-label{font-size:14px}
+.unode-sub{font-size:12.5px}
+.unit-soul{font-size:14px}
+.unit-name{font-size:21px}
+.rtable{font-size:14.5px}
+.mono{font-size:15px}
+
+/* ===== HUD/组件字号精修 ===== */
+.hud-title{font-size:18px}
+.hud-steps{font-size:15px}
+.hud-btn{font-size:14px}
+#hudhost .btn{font-size:14px}
+.quiz-opt{font-size:15px;line-height:1.6;padding:10px 14px}
+#optBox .btn{font-size:15px;line-height:1.55;padding:10px 14px}
+.ask{font-size:16px}
+.readout{line-height:1.8}
+
+/* ===== 多邻国式组件层 ===== */
+.btn.primary{background:#58CC02;color:#fff;font-weight:800;border:none;border-bottom:4px solid #46A302;border-radius:14px}
+.btn.primary:hover{background:#61D802}
+.btn.primary:active{transform:translateY(2px);border-bottom-width:2px}
+.btn.ghost{background:#fff;color:#1CB0F6;font-weight:700;border:2px solid #E5E5E5;border-radius:14px}
+.btn.ghost:hover{background:#DDF4FF;border-color:#84D8FF}
+.btn{border-radius:14px}
+.btn.sm{border-radius:10px}
+.panel{border-radius:16px}
+.tool-panel,.target-card{border-radius:16px}
+.slot{border-radius:12px}
+.tcard{border-radius:14px}
+.unit-no{border-radius:10px;font-weight:800}
+.map-stars{color:#FFC800}
+.chip.ok{background:#D7FFB8;color:#3C8C00}
+
+/* ===== 视觉焦点层 ===== */
+body{background:#F7F7F7}
+.stage{background:#FFFFFF;border:2px solid #E5E5E5}
+.level-body{gap:18px}
+#goalTxt{font-size:17.5px;font-weight:700;line-height:1.85;color:#3C3C3C}
+.target-card{background:#FFFFFF;border:2px solid #E5E5E5}
+.target-card h4{color:#1CB0F6;font-size:16px;letter-spacing:1px}
+.quiz-q{font-size:19px;font-weight:800}
+#optBox .btn,.quiz-opt{font-weight:700;border-width:2px;background:#FFFFFF}
+#optBox .btn:hover{background:#DDF4FF;border-color:#84D8FF}
+.tool-panel{background:#FFFFFF;border:2px solid #E5E5E5}
+.unit-sec{background:#FFFFFF;border:2px solid #E5E5E5}
+.slot{border-width:2px}
+.readout{background:#F0FAFF;border-radius:10px;padding:6px 10px}
+
+/* 当前目标卡字号回调 */
+#goalTxt{font-size:15px;font-weight:600;line-height:1.75}
+.target-card p{font-size:14.5px}
