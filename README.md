@@ -21,6 +21,15 @@ cp .env.example .env
 docker compose up -d --build
 ```
 
+在一台已安装 Git 和 Docker Compose 的新服务器上，最快可直接执行：
+
+```bash
+git clone https://github.com/daiyibo123/-.git handcraft-nn
+cd handcraft-nn
+cp .env.example .env
+docker compose up -d --build
+```
+
 启动后访问 `http://服务器地址:8800/`，教师看板位于 `/dashboard`，健康检查位于 `/api/health`。
 SQLite 数据保存在 Docker 命名卷 `app-data` 中，重新创建容器不会丢失。若 8800 端口已占用，可在 `.env` 中修改 `APP_PORT`。
 
